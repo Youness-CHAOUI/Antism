@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
-    tools:context=".StartActivity">
+    android:background="@drawable/bg22"
+    tools:context=".childAssitantActivity">
 
     <ImageView
-        android:id="@+id/iv_childAssistant"
+        android:id="@+id/iv_videos"
         android:layout_width="306dp"
         android:layout_height="205dp"
         android:layout_marginStart="8dp"
@@ -17,44 +17,43 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#8F010101"
+        android:background="#F46666"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101"
-        app:srcCompat="@drawable/child_assistant" />
+        app:layout_constraintVertical_bias="0.101" />
 
     <View
-        android:id="@+id/v_childAssistant"
+        android:id="@+id/v_videos"
         android:layout_width="294dp"
         android:layout_height="192dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="16dp"
         android:background="#88000000"
-        app:layout_constraintBottom_toTopOf="@+id/iv_childAssistant"
-        app:layout_constraintEnd_toStartOf="@+id/iv_childAssistant"
+        app:layout_constraintBottom_toTopOf="@+id/iv_videos"
+        app:layout_constraintEnd_toStartOf="@+id/iv_videos"
         app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toEndOf="@+id/iv_childAssistant"
-        app:layout_constraintTop_toBottomOf="@+id/iv_childAssistant"
+        app:layout_constraintStart_toEndOf="@+id/iv_videos"
+        app:layout_constraintTop_toBottomOf="@+id/iv_videos"
         app:layout_constraintVertical_bias="0.546" />
 
     <TextView
-        android:id="@+id/tv_childAssistant"
+        android:id="@+id/tv_videos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_childAssistant"
+        android:text="@string/_videos"
         android:textColor="#FFF"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_childAssistant"
-        app:layout_constraintEnd_toStartOf="@+id/iv_childAssistant"
+        app:layout_constraintBottom_toTopOf="@+id/iv_videos"
+        app:layout_constraintEnd_toStartOf="@+id/iv_videos"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_childAssistant"
-        app:layout_constraintTop_toBottomOf="@+id/iv_childAssistant" />
+        app:layout_constraintStart_toEndOf="@+id/iv_videos"
+        app:layout_constraintTop_toBottomOf="@+id/iv_videos" />
 
     <ImageView
-        android:id="@+id/iv_assistant"
+        android:id="@+id/iv_routine"
         android:layout_width="306dp"
         android:layout_height="205dp"
         android:layout_marginStart="8dp"
@@ -63,37 +62,36 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#8F010101"
+        android:background="#669EFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_childAssistant"
-        app:layout_constraintVertical_bias="0.252"
-        app:srcCompat="@drawable/assistant" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_videos"
+        app:layout_constraintVertical_bias="0.252" />
 
     <View
-        android:id="@+id/v_assitant"
+        android:id="@+id/v_routine"
         android:layout_width="294dp"
         android:layout_height="192dp"
         android:background="#88000000"
-        app:layout_constraintBottom_toTopOf="@+id/iv_assistant"
-        app:layout_constraintEnd_toStartOf="@+id/tv_assitant"
+        app:layout_constraintBottom_toTopOf="@+id/iv_routine"
+        app:layout_constraintEnd_toStartOf="@+id/tv_routine"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_assitant"
-        app:layout_constraintTop_toBottomOf="@+id/iv_assistant" />
+        app:layout_constraintStart_toEndOf="@+id/tv_routine"
+        app:layout_constraintTop_toBottomOf="@+id/iv_routine" />
 
     <TextView
-        android:id="@+id/tv_assitant"
+        android:id="@+id/tv_routine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/_assistant"
+        android:text="@string/_routine"
         android:textColor="#FFF"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_assistant"
-        app:layout_constraintEnd_toStartOf="@+id/iv_assistant"
+        app:layout_constraintBottom_toTopOf="@+id/iv_routine"
+        app:layout_constraintEnd_toStartOf="@+id/iv_routine"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_assistant"
-        app:layout_constraintTop_toBottomOf="@+id/iv_assistant" />
+        app:layout_constraintStart_toEndOf="@+id/iv_routine"
+        app:layout_constraintTop_toBottomOf="@+id/iv_routine" />
 
 </android.support.constraint.ConstraintLayout>
