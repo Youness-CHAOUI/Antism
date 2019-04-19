@@ -12,11 +12,15 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".AssitantActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_assistantActivity" />
         <activity android:name=".childAssitantActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_childAssistantActivity" />
-        <activity android:name=".StartActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Antism</string>
     <string name="copyright">younesschaoui15@gmail.com - INJAZ 2019</string>
-    <string name="_AppIntroDescription">كيف تفهم طفلك المتوحد بطريقة أصح</string>
+    <string name="_AppIntroDescription">كيف تفهم طفلك التوحدي بطريقة أصح</string>
     <string name="_assistant">المرافق</string>
     <string name="_childAssistant">الطفل و المرافق</string>
     <string name="_videos">فيديوهات نموذجية</string>
     <string name="_routine">الروتين اليومي</string>
-    <string name="_experts">أخصائين</string>
+    <string name="_experts">أخصائيين</string>
     <string name="_parent">أباء أقوى من التحدي</string>
     <string name="title_assistantActivity">فضاء المرافق</string>
     <string name="title_childAssistantActivity">فضاء الطفل والمرافق</string>
