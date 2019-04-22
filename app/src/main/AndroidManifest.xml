@@ -4,22 +4,50 @@
 
     <application
         android:allowBackup="true"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".createTaskActivity"
+            android:label="@string/_new_routine"
+            android:parentActivityName=".RoutineListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modularVideosActivity"
+            android:parentActivityName=".childAssitantActivity" />
+        <activity
+            android:name=".RoutineDetailsActivity"
+            android:label="@string/title_activity_routine_list"
+            android:parentActivityName=".RoutineListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RoutineListActivity"
+            android:label="@string/title_activity_routine_list"
+            android:parentActivityName=".childAssitantActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.injaz2019.antism.childAssitantActivity" />
+        </activity>
         <activity
             android:name=".AssitantActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_assistantActivity" />
-        <activity android:name=".childAssitantActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_childAssistantActivity" />
-        <activity android:name=".StartActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"
+            android:label="@string/title_assistantActivity"
+            android:parentActivityName=".StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".childAssitantActivity"
+            android:label="@string/title_childAssistantActivity"
+            android:parentActivityName=".StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

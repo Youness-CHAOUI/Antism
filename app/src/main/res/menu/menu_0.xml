@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="chaoui.cy_15.www.gestiondabsencecy_15.matieresActivity">
+
+    <item android:id="@+id/quitter"
+        android:title="@string/quitter"
+        app:showAsAction="never"/>
+</menu>
