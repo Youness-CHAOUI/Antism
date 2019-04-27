@@ -1,25 +1,15 @@
 package com.injaz2019.antism.classes.Database;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.injaz2019.antism.classes.Metier.Routine;
 
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Created by CY_15 on 21/06/2018.
  */
-public class myDBHelper extends SQLiteOpenHelper
-{
-
-    SQLiteDatabase db;
+public class myDBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "db_gestion_absence";
@@ -28,6 +18,7 @@ public class myDBHelper extends SQLiteOpenHelper
     private static final String TABLE_Matiere = "Matiere";
     private static final String TABLE_LISTEABSENCE = "ListeAbsence";
     private static final String TABLE_PRESENCE = "Presence";
+    SQLiteDatabase db;
 
     public myDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,14 +26,12 @@ public class myDBHelper extends SQLiteOpenHelper
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db)
-    {
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL(Routine.sqlCreateRoutine);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(Routine.sqlDropRoutine);
         onCreate(db);
     }
