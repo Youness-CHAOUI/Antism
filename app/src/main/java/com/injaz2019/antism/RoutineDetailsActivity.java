@@ -2,13 +2,17 @@ package com.injaz2019.antism;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Toast;
+
+import com.injaz2019.antism.classes.Database.myDBHelper;
 
 public class RoutineDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+
+    myDBHelper dbHelper;
+    int ID_ROUTINE;
+    Intent _intent;
 
     CardView l_morning, l_night;
 
@@ -17,8 +21,14 @@ public class RoutineDetailsActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine_details);
 
+        dbHelper = new myDBHelper(this);
+        ID_ROUTINE = getIntent().getExtras().getInt("idRoutine");
+        _intent = new Intent(this, PeriodDetailsActivity.class);
+        _intent.putExtra("ID_ROUTINE", ID_ROUTINE);
+
         l_morning = (CardView) findViewById(R.id.l_morning);
         l_night = (CardView) findViewById(R.id.l_night);
+
 
         l_morning.setOnClickListener(this);
         l_night.setOnClickListener(this);
@@ -35,12 +45,12 @@ public class RoutineDetailsActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.l_morning:
-//                startActivity(new Intent(this, RoutineListActivity.class));
-                Toast.makeText(this, "Morning", Toast.LENGTH_SHORT).show();
+                _intent.putExtra("PERIOD", false);
+                startActivity(_intent);
                 break;
             case R.id.l_night:
-//                startActivity(new Intent(this, RoutineListActivity.class));
-                Toast.makeText(this, "Night", Toast.LENGTH_SHORT).show();
+                _intent.putExtra("PERIOD", true);
+                startActivity(_intent);
                 break;
         }
     }

@@ -24,4 +24,10 @@
     <string name="_add_to_routine">أضف الى الروتين اليومي</string>
     <string name="_save">حفظ</string>
     <string name="_repeat">اعادة</string>
+    <string name="pick_time">التوقيت</string>
+    <string name="_choose_time">اختر التوقيت</string>
+    <string name="_error_image">الصورة غير موجودة</string>
+    <string name="_error_audio">التسجيل الصوتي غير موجود</string>
+    <string name="_error_time">التوقيت غير صحيح</string>
+    <string name="_error_save">خطأ في الحفظ. أعد المحاولة</string>
 </resources>
