@@ -5,7 +5,8 @@ package com.injaz2019.antism.classes.Metier;
  */
 public class Presence
 {
-    int id;
+// id
+    int id; 
     String cne;
     int present;
     int id_listeAbsence;
