@@ -2,7 +2,6 @@ package com.injaz2019.antism.classes.Dialog;
 
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
 import android.view.View;
 
 /**

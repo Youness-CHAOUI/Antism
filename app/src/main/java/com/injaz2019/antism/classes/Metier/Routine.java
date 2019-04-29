@@ -1,23 +1,39 @@
 package com.injaz2019.antism.classes.Metier;
 
 public class Routine {
+    public static String ROUTINE_TABLE = "Routine";
+    public static String sqlCreateRoutine = "create table " + ROUTINE_TABLE +
+            " (id integer primary key autoincrement," +
+                                            "date TEXT," +
+            "nbMorningTasks integer," +
+            "nbNightTasks integer)";
+    public static String sqlDropRoutine = "drop table if exists " + ROUTINE_TABLE;
     private int id;
     private String date;
-    private String desc;
-
-    public static String sqlCreateRoutine = "create table Routine " +
-                                            "(id integer primary key autoincrement," +
-                                            "date TEXT," +
-                                            "desc TEXT)";
-    public static String sqlDropRoutine = "drop table if exists Routine";
+    private int nbMorningTasks;
+    private int nbNightTasks;
 
     public Routine() {
     }
 
-    public Routine(int id, String date, String desc) {
+    public Routine(String date) {
+        this.date = date;
+        this.nbMorningTasks = 0;
+        this.nbNightTasks = 0;
+    }
+
+    public Routine(int id, String date) {
         this.id = id;
         this.date = date;
-        this.desc = desc;
+        this.nbMorningTasks = 0;
+        this.nbNightTasks = 0;
+    }
+
+    public Routine(int id, String date, int nbMorningTasks, int nbNightTasks) {
+        this.id = id;
+        this.date = date;
+        this.nbMorningTasks = nbMorningTasks;
+        this.nbNightTasks = nbNightTasks;
     }
 
     public int getId() {
@@ -36,16 +52,29 @@ public class Routine {
         this.date = date;
     }
 
-    public String getDesc() {
-        return desc;
+    public int getNbMorningTasks() {
+        return nbMorningTasks;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setNbMorningTasks(int nbMorningTasks) {
+        this.nbMorningTasks = nbMorningTasks;
+    }
+
+    public int getNbNightTasks() {
+        return nbNightTasks;
+    }
+
+    public void setNbNightTasks(int nbNightTasks) {
+        this.nbNightTasks = nbNightTasks;
     }
 
     @Override
     public String toString() {
-        return "";
+        return "Routine{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", nbMorningTasks=" + nbMorningTasks +
+                ", nbNightTasks=" + nbNightTasks +
+                '}';
     }
 }

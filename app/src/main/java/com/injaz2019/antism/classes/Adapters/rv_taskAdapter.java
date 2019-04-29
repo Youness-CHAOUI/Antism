@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.injaz2019.antism.R;
-import com.injaz2019.antism.RoutineDetailsActivity;
-import com.injaz2019.antism.classes.Metier.Routine;
+import com.injaz2019.antism.TacheDetailsActivity;
+import com.injaz2019.antism.classes.Metier.Tache;
 
 import java.util.ArrayList;
 
@@ -18,45 +18,39 @@ import java.util.ArrayList;
 /**
  * Created by CY_15 on 28/04/2018.
  */
-public class rv_routineAdapter extends RecyclerView.Adapter<rv_routineAdapter.myViewHolder>
-{
-    ArrayList<Routine> listeRoutines;
+public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHolder> {
+    ArrayList<Tache> listeTaches;
 
-    public rv_routineAdapter(ArrayList<Routine> liste)
-    {
-        listeRoutines=liste;
+    public rv_taskAdapter(ArrayList<Tache> liste) {
+        listeTaches = liste;
     }
 
-    public void setlisteRoutines(ArrayList<Routine> listeRoutines)
-    {
-        this.listeRoutines = listeRoutines;
+    public void setlisteTaches(ArrayList<Tache> listeTaches) {
+        this.listeTaches = listeTaches;
     }
 
     @Override
-    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
-        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.routine_card_item, parent, false);
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tache_card_item, parent, false);
         return new myViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(myViewHolder myviewholder, int position)
-    {
-        myviewholder.update(listeRoutines.get(position));
+    public void onBindViewHolder(myViewHolder myviewholder, int position) {
+        myviewholder.update(listeTaches.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listeRoutines.size();
+        return listeTaches.size();
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder //implements View.OnCreateContextMenuListener//, View.OnContextClickListener
     {
-        TextView tv_id, tv_date, tv_desc;
         final Context itemContext;
+        TextView tv_id, tv_date, tv_desc;
 
-        public myViewHolder(final View itemView)
-        {
+        public myViewHolder(final View itemView) {
             super(itemView);
             itemContext = itemView.getContext();
 
@@ -67,8 +61,8 @@ public class rv_routineAdapter extends RecyclerView.Adapter<rv_routineAdapter.my
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(itemContext, RoutineDetailsActivity.class);
-                    i.putExtra("idRoutine", Integer.parseInt(tv_id.getText().toString()));
+                    Intent i = new Intent(itemContext, TacheDetailsActivity.class);
+                    i.putExtra("ID_TACHE", Integer.parseInt(tv_id.getText().toString()));
                     itemContext.startActivity(i);
                 }
             });
@@ -76,7 +70,7 @@ public class rv_routineAdapter extends RecyclerView.Adapter<rv_routineAdapter.my
 //                @Override
 //                public boolean onLongClick(View v) {
 //                    new AlertDialog.Builder(itemContext)
-//                            .setTitle("La Routine : "+tv_id.getText())
+//                            .setTitle("La Tache : "+tv_id.getText())
 //                            .setMessage(tv_date.getText())
 //                            .show();
 //                    return false;
@@ -84,12 +78,11 @@ public class rv_routineAdapter extends RecyclerView.Adapter<rv_routineAdapter.my
 //            });
         }
 
-        private void update(Routine c)
-        {
+        private void update(Tache c) {
             tv_id.setText(String.valueOf(c.getId()));
-            tv_date.setText(c.getDate());
-            String nb1 = "أنشطة صباحية: " + c.getNbMorningTasks();
-            String nb2 = " - أنشطة مسائية: " + c.getNbNightTasks();
+            tv_date.setText(c.getHeure());
+            String nb1 = "أنشطة صباحية: " + c.getIsDone();
+            String nb2 = " - أنشطة مسائية: " + c.getRate();
             tv_desc.setText(nb1 + nb2);
         }
     }

@@ -86,6 +86,7 @@
         android:id="@+id/btn_start"
         android:layout_width="202dp"
         android:layout_height="38dp"
+        android:background="@drawable/btn_radius3"
         android:text="دخول"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

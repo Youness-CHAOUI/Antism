@@ -18,6 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TacheDetailsActivity"></activity>
+        <activity android:name=".PeriodDetailsActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -27,17 +29,16 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!--<activity-->
-        <!--android:name=".TakePictureActivity"-->
-        <!--android:label="@string/_take_picture"-->
-        <!--android:parentActivityName=".createTaskActivity"-->
-        <!--android:screenOrientation="portrait" />-->
+        </provider> <!-- <activity -->
+        <!-- android:name=".TakePictureActivity" -->
+        <!-- android:label="@string/_take_picture" -->
+        <!-- android:parentActivityName=".createTaskActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".createTaskActivity"
             android:label="@string/_new_routine"
-            android:parentActivityName=".RoutineListActivity" />
+            android:parentActivityName=".RoutineListActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modularVideosActivity"
             android:parentActivityName=".childAssitantActivity" />
