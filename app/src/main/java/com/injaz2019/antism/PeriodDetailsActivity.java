@@ -32,7 +32,8 @@ public class PeriodDetailsActivity extends AppCompatActivity {
         int ID_ROUTINE = getIntent().getExtras().getInt("ID_ROUTINE");
         boolean PERIOD = getIntent().getExtras().getBoolean("PERIOD");
 
-        _taskAdapter = new rv_taskAdapter(dbHelper.getTachesByRoutineAndPeriod(ID_ROUTINE, PERIOD));
+        tasksList = dbHelper.getTachesByRoutineAndPeriod(ID_ROUTINE, PERIOD);
+        _taskAdapter = new rv_taskAdapter(tasksList);
         _rv_tasks.setAdapter(_taskAdapter);
     }
 }

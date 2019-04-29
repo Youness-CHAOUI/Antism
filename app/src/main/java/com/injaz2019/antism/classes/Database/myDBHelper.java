@@ -134,6 +134,32 @@ public class myDBHelper extends SQLiteOpenHelper {
         return liste;
     }
 
+    public Tache findTacheById(int id) {
+        Tache tache = null;
+        String query = "SELECT * FROM " + TACHE_TABLE + " WHERE id = " + id;
+        db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                tache = new Tache(
+                        Integer.parseInt(cursor.getString(0)),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        Boolean.parseBoolean(cursor.getString(4)),
+                        Boolean.parseBoolean(cursor.getString(5)),
+                        Integer.parseInt(cursor.getString(6)),
+                        Integer.parseInt(cursor.getString(7))
+                );
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return tache;
+    }
+
     /**
      * ROUTINE
      **/

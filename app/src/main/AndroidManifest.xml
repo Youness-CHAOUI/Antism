@@ -23,6 +23,10 @@
             android:parentActivityName=".PeriodDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ShowTaskActivity"
+            android:parentActivityName=".PeriodDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PeriodDetailsActivity"
             android:parentActivityName=".RoutineDetailsActivity"
             android:screenOrientation="portrait" />
@@ -79,11 +83,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider> <!-- <activity -->
-        <!-- android:name=".TakePictureActivity" -->
-        <!-- android:label="@string/_take_picture" -->
-        <!-- android:parentActivityName=".createTaskActivity" -->
-        <!-- android:screenOrientation="portrait" /> -->
+        </provider>
     </application>
 
 </manifest>

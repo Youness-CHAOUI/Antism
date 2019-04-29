@@ -2,6 +2,7 @@ package com.injaz2019.antism.classes.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.injaz2019.antism.R;
-import com.injaz2019.antism.TacheDetailsActivity;
+import com.injaz2019.antism.ShowTaskActivity;
 import com.injaz2019.antism.classes.Metier.Tache;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -20,6 +22,8 @@ import java.util.ArrayList;
  */
 public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHolder> {
     ArrayList<Tache> listeTaches;
+    private String[] _colors = {"#90A4AE", "#FF3D00", "#FFEA00", "#C6FF00", "#00E676",
+            "#40C4FF", "#1DE9B6", "#B388FF", "#FF1744", "#FFB74D"};
 
     public rv_taskAdapter(ArrayList<Tache> liste) {
         listeTaches = liste;
@@ -37,7 +41,7 @@ public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHo
 
     @Override
     public void onBindViewHolder(myViewHolder myviewholder, int position) {
-        myviewholder.update(listeTaches.get(position));
+        myviewholder.update(listeTaches.get(position), position);
     }
 
     @Override
@@ -48,7 +52,8 @@ public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHo
     public class myViewHolder extends RecyclerView.ViewHolder //implements View.OnCreateContextMenuListener//, View.OnContextClickListener
     {
         final Context itemContext;
-        TextView tv_id, tv_date, tv_desc;
+        TextView tv_id, tv_date, tv_nb;
+//        CardView card_view_task;
 
         public myViewHolder(final View itemView) {
             super(itemView);
@@ -56,12 +61,13 @@ public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHo
 
             tv_id = itemView.findViewById(R.id.tv_id);
             tv_date = itemView.findViewById(R.id.tv_date);
-            tv_desc = itemView.findViewById(R.id.tv_desc);
+            tv_nb = itemView.findViewById(R.id.tv_nb);
+//            card_view_task = itemView.findViewById(R.id.card_view_task);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(itemContext, TacheDetailsActivity.class);
+                    Intent i = new Intent(itemContext, ShowTaskActivity.class);
                     i.putExtra("ID_TACHE", Integer.parseInt(tv_id.getText().toString()));
                     itemContext.startActivity(i);
                 }
@@ -78,12 +84,12 @@ public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHo
 //            });
         }
 
-        private void update(Tache c) {
+        private void update(Tache c, int pos) {
             tv_id.setText(String.valueOf(c.getId()));
             tv_date.setText(c.getHeure());
-            String nb1 = "أنشطة صباحية: " + c.getIsDone();
-            String nb2 = " - أنشطة مسائية: " + c.getRate();
-            tv_desc.setText(nb1 + nb2);
+            tv_nb.setText(String.valueOf(pos + 1));
+
+            tv_nb.setBackgroundColor(Color.parseColor(_colors[new Random().nextInt(10)]));
         }
     }
 }
