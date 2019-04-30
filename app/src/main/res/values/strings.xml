@@ -17,11 +17,11 @@
     <string name="quitter">خروج</string>
     <string name="_take_picture">التقط صورة</string>
     <string name="_choose_picture">اختر صورة من معرض الصور</string>
-    <string name="_new_routine">مهمة جديدة</string>
+    <string name="_new_routine">نشاط جديد</string>
     <string name="_record">سجل مقطعا صوتيا</string>
     <string name="_matin">الصباح</string>
     <string name="_soir">المساء</string>
-    <string name="_add_to_routine">أضف الى الروتين اليومي</string>
+    <string name="_add_to_routine">أضف الى أنشطة اليوم</string>
     <string name="_save">حفظ</string>
     <string name="_repeat">اعادة</string>
     <string name="pick_time">التوقيت</string>

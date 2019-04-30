@@ -19,10 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TacheDetailsActivity"
-            android:parentActivityName=".PeriodDetailsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ShowTaskActivity"
             android:parentActivityName=".PeriodDetailsActivity"
             android:screenOrientation="portrait" />

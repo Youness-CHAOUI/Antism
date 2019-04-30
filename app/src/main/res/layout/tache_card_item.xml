@@ -33,7 +33,7 @@
                 android:layout_height="21dp"
                 android:layout_below="@id/tv_nb"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/round_access_alarms_black_24dp" />
+                android:src="@drawable/round_alarm_black_24dp" />
 
             <TextView
                 android:id="@+id/tv_date"
@@ -48,6 +48,16 @@
                 android:text="11:33"
                 android:textColor="#4c4c4c"
                 android:textSize="15sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_below="@+id/tv_nb"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="3dp"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/tv_id"

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg11_1"
+    android:background="@drawable/bg11"
     android:padding="2dp"
     tools:context=".ShowTaskActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_margin="7dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
@@ -29,11 +29,11 @@
 
             <ImageView
                 android:id="@+id/iv_picture"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="0dp"
                 android:padding="0dp"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -43,40 +43,42 @@
 
             <ImageButton
                 android:id="@+id/btn_listen"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@null"
                 android:scaleType="fitXY"
-                android:src="@drawable/ear_2"
+                android:src="@drawable/ear"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
                 android:id="@+id/btn_stop"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="2dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:src="@drawable/stop"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_listen" />
 
             <ImageButton
                 android:id="@+id/btn_repeat"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="2dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:src="@drawable/repeat"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_stop" />
         </android.support.constraint.ConstraintLayout>

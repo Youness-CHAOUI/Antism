@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
@@ -18,7 +19,9 @@ import android.util.Log;
 
 import com.injaz2019.antism.BuildConfig;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -35,6 +38,8 @@ public class CameraUtils {
     public static final int BITMAP_SAMPLE_SIZE_64 = 64;
     public static final int BITMAP_SAMPLE_SIZE_128 = 128;
     public static final int BITMAP_SAMPLE_SIZE_256 = 256;
+    public static final int BITMAP_SAMPLE_SIZE_512 = 512;
+    public static final int BITMAP_SAMPLE_SIZE_1024 = 1024;
     // Gallery directory name to store the images or videos
     public static final String GALLERY_DIRECTORY_NAME = "MAutismApp";
     // Image and Video file extensions
@@ -69,21 +74,37 @@ public class CameraUtils {
     /**
      * Downsizing the bitmap to avoid OutOfMemory exceptions
      */
-    public static Bitmap optimizeBitmap(int sampleSize, String filePath) {
-        // bitmap factory
-        BitmapFactory.Options options = new BitmapFactory.Options();
+    public static Bitmap optimizeBitmap(String filePath) {
+        try {
+            File f = new File(filePath);
+            ExifInterface exif = new ExifInterface(f.getPath());
+            int orientation = exif.getAttributeInt(
+                    ExifInterface.TAG_ORIENTATION,
+                    ExifInterface.ORIENTATION_NORMAL);
+            int angle = 0;
+            if (orientation == ExifInterface.ORIENTATION_ROTATE_90) {
+                angle = 90;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_180) {
+                angle = 180;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_270) {
+                angle = 270;
+            }
 
-        // downsizing image as it throws OutOfMemory Exception for larger
-        // images
-        options.inSampleSize = sampleSize;
-        // rotate image
-        Matrix matrix = new Matrix();
-        matrix.postRotate(-90);
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
-        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(rotatedBitmap, 80, 80, true);
+            Matrix mat = new Matrix();
+            mat.postRotate(angle);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 2;
+            Bitmap bmp = BitmapFactory.decodeStream(new FileInputStream(f),
+                    null, options);
+            Bitmap scaledBitmap = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(),
+                    bmp.getHeight(), mat, true);
+            ByteArrayOutputStream outstudentstreamOutputStream = new ByteArrayOutputStream();
+            scaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, outstudentstreamOutputStream);
 
-        return scaledBitmap;
+            return scaledBitmap;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static Bitmap optimizeBitmap2(int sampleSize, String filePath) {
