@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MAutism App</string>
-    <string name="copyright">younesschaoui15@gmail.com - INJAZ 2019</string>
+    <string name="copyright">younesschaoui15@gmail.com - ITAK - INJAZ 2019 </string>
     <string name="_AppIntroDescription">كيف تفهم طفلك التوحدي بطريقة أصح</string>
     <string name="_assistant">المرافق</string>
     <string name="_childAssistant">الطفل و المرافق</string>
@@ -10,7 +10,6 @@
     <string name="_parent">أباء أقوى من التحدي</string>
     <string name="title_assistantActivity">فضاء المرافق</string>
     <string name="title_childAssistantActivity">فضاء الطفل والمرافق</string>
-    <string name="title_activity_basic">basic</string>
     <string name="title_activity_routine_list">الروتين اليومي</string>
     <string name="_morning">الفترة الصباحية</string>
     <string name="_night">الفترة المسائية</string>
@@ -30,4 +29,5 @@
     <string name="_error_audio">التسجيل الصوتي غير موجود</string>
     <string name="_error_time">التوقيت غير صحيح</string>
     <string name="_error_save">خطأ في الحفظ. أعد المحاولة</string>
+    <string name="_error_vid_load">مشكل في الاتصال وتحميل الفيديو</string>
 </resources>
