@@ -63,7 +63,7 @@ public class rv_taskAdapter extends RecyclerView.Adapter<rv_taskAdapter.myViewHo
             itemContext = itemView.getContext();
 
             tv_id = itemView.findViewById(R.id.tv_id);
-            tv_date = itemView.findViewById(R.id.tv_date);
+            tv_date = itemView.findViewById(R.id.tv_title);
             tv_nb = itemView.findViewById(R.id.tv_nb);
             progressBar1 = itemView.findViewById(R.id.progressBar1);
 //            card_view_task = itemView.findViewById(R.id.card_view_task);

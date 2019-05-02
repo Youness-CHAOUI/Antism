@@ -61,8 +61,8 @@ public class rv_routineAdapter extends RecyclerView.Adapter<rv_routineAdapter.my
             itemContext = itemView.getContext();
 
             tv_id = itemView.findViewById(R.id.tv_id);
-            tv_date = itemView.findViewById(R.id.tv_date);
-            tv_desc = itemView.findViewById(R.id.tv_desc);
+            tv_date = itemView.findViewById(R.id.tv_date3);
+            tv_desc = itemView.findViewById(R.id.tv_desc3);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

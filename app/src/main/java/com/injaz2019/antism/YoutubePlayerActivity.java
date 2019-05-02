@@ -40,7 +40,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
         youtube_view = findViewById(R.id.youtube_view);
         mAutoRotation = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) == 1;
-        _video_ID = getIntent().getExtras().getString("VID_ID");
+        _video_ID = getIntent().getExtras().getString("VID_PATH");
 
         listener = new YouTubePlayer.OnInitializedListener() {
             @Override
