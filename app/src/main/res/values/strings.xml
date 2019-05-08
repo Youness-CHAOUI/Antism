@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">MAutism App</string>
-    <string name="copyright">younesschaoui15@gmail.com - ITAK - INJAZ 2019 </string>
-    <string name="_AppIntroDescription">كيف تفهم طفلك التوحدي بطريقة أصح</string>
+
+    <!--Admob-->
+    <item name="admob" type="bool">true</item>
+    <item name="admob_test" type="bool">false</item>
+    <string name="test_device_id">D5F00CFCCD8FD2E1D73DD0BE123F2179</string>
+    <string name="admob_app_id">ca-app-pub-1339022678359170~1159988212</string>
+    <string name="admob_banner_test_key">/6499/example/banner</string>
+    <string name="admob_banner1_key">ca-app-pub-1339022678359170/5093124674</string>
+    <string name="admob_banner2_key">ca-app-pub-1339022678359170/7774665312</string>
+    <string name="admob_banner3_key">ca-app-pub-1339022678359170/3818150579</string>
+    <string name="admob_interstitial_test_key">/6499/example/interstitial</string>
+    <string name="admob_interstitial1_key">ca-app-pub-1339022678359170/8654817938</string>
+
+    <string name="copyright">ITAK - INJAZ 2019</string>
+    <string name="copyright2">Created By : Youness CHAOUI - younesschaoui15@gmail.com</string>
+    <string name="_AppIntroDescription">فضاء للعمل مع طفلك التوحدي بطريقة أصح</string>
     <string name="_assistant">المرافق</string>
     <string name="_childAssistant">الطفل و المرافق</string>
     <string name="_videos">فيديوهات نموذجية</string>
@@ -30,4 +44,7 @@
     <string name="_error_time">التوقيت غير صحيح</string>
     <string name="_error_save">خطأ في الحفظ. أعد المحاولة</string>
     <string name="_error_vid_load">مشكل في الاتصال وتحميل الفيديو</string>
+    <string name="_tasks">الأنشطة</string>
+    <string name="_task">النشاط</string>
+    <string name="_all_videos">فيديوهات</string>
 </resources>

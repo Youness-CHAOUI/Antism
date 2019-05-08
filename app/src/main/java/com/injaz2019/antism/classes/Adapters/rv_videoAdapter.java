@@ -1,5 +1,6 @@
 package com.injaz2019.antism.classes.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -47,7 +48,7 @@ public class rv_videoAdapter extends RecyclerView.Adapter<rv_videoAdapter.myView
 
     public class myViewHolder extends RecyclerView.ViewHolder //implements View.OnCreateContextMenuListener//, View.OnContextClickListener
     {
-        final Context itemContext;
+        Context itemContext;
         TextView tv_id, tv_title, tv_duration, tv_path;
 
         public myViewHolder(final View itemView) {
@@ -64,9 +65,10 @@ public class rv_videoAdapter extends RecyclerView.Adapter<rv_videoAdapter.myView
                 public void onClick(View v) {
                     Intent i = new Intent(itemContext, YoutubePlayerActivity.class);
                     i.putExtra("VID_PATH", tv_path.getText());
-                    itemContext.startActivity(i);
+                    ((Activity) itemContext).startActivityForResult(i, 22);
                 }
             });
+
 //            itemView.setOnLongClickListener(new View.OnLongClickListener() {
 //                @Override
 //                public boolean onLongClick(View v) {

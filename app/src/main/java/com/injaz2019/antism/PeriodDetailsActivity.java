@@ -1,9 +1,12 @@
 package com.injaz2019.antism;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.injaz2019.antism.classes.Adapters.rv_taskAdapter;
 import com.injaz2019.antism.classes.Database.myDBHelper;
@@ -35,5 +38,24 @@ public class PeriodDetailsActivity extends AppCompatActivity {
         tasksList = dbHelper.getTachesByRoutineAndPeriod(ID_ROUTINE, PERIOD);
         _taskAdapter = new rv_taskAdapter(tasksList);
         _rv_tasks.setAdapter(_taskAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_0, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.quitter:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    finishAffinity();
+                }
+                System.exit(0);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

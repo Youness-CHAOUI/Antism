@@ -15,7 +15,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.injaz2019.antism.classes.Utils.YoutubeApiConfig;
 
-public class YoutubePlayerActivity extends YouTubeBaseActivity {
+public class YoutubePlayerActivity extends YouTubeBaseActivity implements YouTubePlayer.PlayerStateChangeListener {
 
     @SuppressLint("InlinedApi")
     private static final int PORTRAIT_ORIENTATION = Build.VERSION.SDK_INT < 9
@@ -42,12 +42,13 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
                 Settings.System.ACCELEROMETER_ROTATION, 0) == 1;
         _video_ID = getIntent().getExtras().getString("VID_PATH");
 
+
         listener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 /*Load video*/
                 mPlayer = youTubePlayer;
-
+                mPlayer.setPlayerStateChangeListener(YoutubePlayerActivity.this);
                 if (mAutoRotation) {
                     youTubePlayer.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CONTROL_ORIENTATION
                             | YouTubePlayer.FULLSCREEN_FLAG_CONTROL_SYSTEM_UI
@@ -100,5 +101,33 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
         }
     }
 
+    @Override
+    public void onLoading() {
+        Log.i("***", "loading");
+    }
 
+    @Override
+    public void onLoaded(String s) {
+        Log.i("***", "loaded");
+    }
+
+    @Override
+    public void onAdStarted() {
+        Log.i("***", "ad started");
+    }
+
+    @Override
+    public void onVideoStarted() {
+        Log.i("***", "started");
+    }
+
+    @Override
+    public void onVideoEnded() {
+        Log.i("***", "ended");
+    }
+
+    @Override
+    public void onError(YouTubePlayer.ErrorReason errorReason) {
+        Log.i("***", "error");
+    }
 }
