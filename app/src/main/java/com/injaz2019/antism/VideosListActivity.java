@@ -94,11 +94,13 @@ public class VideosListActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         switch (requestCode) {
             case 22:
-                if (mPublisherInterstitialAd.isLoaded()) {
-                    mPublisherInterstitialAd.show();
-                } else {
-                    Log.d("***", "The interstitial wasn't loaded yet.");
-                }
+                Log.d("***", "The interstitial showen after back from video.");
+//                if (mPublisherInterstitialAd.isLoaded()) {
+//                    mPublisherInterstitialAd.show();
+//                    Log.d("***", "The interstitial showen after back from video.");
+//                } else {
+//                    Log.d("***", "The interstitial wasn't loaded yet.");
+//                }
                 break;
             default:
                 Log.i("***", "no");

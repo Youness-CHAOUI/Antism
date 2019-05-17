@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAutism App</string>
+    <string name="app_name">MAutismApp</string>
 
     <!--Admob-->
     <item name="admob" type="bool">true</item>
@@ -12,9 +12,15 @@
     <string name="admob_banner3_key">ca-app-pub-1339022678359170/3818150579</string>
     <string name="admob_interstitial_test_key">/6499/example/interstitial</string>
     <string name="admob_interstitial1_key">ca-app-pub-1339022678359170/8654817938</string>
+    <string name="admob_interstitial2_key">ca-app-pub-1339022678359170/8003767582</string>
+    <string name="admob_interstitial3_key">ca-app-pub-1339022678359170/6088050686</string>
 
     <string name="copyright">ITAK - INJAZ 2019</string>
     <string name="copyright2">Created By : Youness CHAOUI - younesschaoui15@gmail.com</string>
+    <string-array name="copyright">
+        <item>ITAK COMPANY ®</item>
+        <item>FSJES AGADIR - INJAZ 2019</item>
+    </string-array>
     <string name="_AppIntroDescription">فضاء للعمل مع طفلك التوحدي بطريقة أصح</string>
     <string name="_assistant">المرافق</string>
     <string name="_childAssistant">الطفل و المرافق</string>

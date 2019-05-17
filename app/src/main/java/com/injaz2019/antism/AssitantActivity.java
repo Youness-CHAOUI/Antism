@@ -6,20 +6,26 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 
 public class AssitantActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv_experts, tv_parents;
     View v_experts, v_parents;
     AdView adView;
+
+    PublisherInterstitialAd mPublisherInterstitialAd, mPublisherInterstitialAd2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,48 @@ public class AssitantActivity extends AppCompatActivity implements View.OnClickL
         adView = findViewById(R.id.adView_2);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(getResources().getString(R.string.test_device_id)).build();
         adView.loadAd(adRequest);
+
+        mPublisherInterstitialAd = new PublisherInterstitialAd(this);
+        mPublisherInterstitialAd.setAdUnitId(getResources().getString(R.string.admob_interstitial2_key));
+        PublisherAdRequest publisherAdRequest = new PublisherAdRequest.Builder()
+                .addTestDevice(getResources().getString(R.string.test_device_id))
+                .build();
+        mPublisherInterstitialAd.loadAd(publisherAdRequest);
+        mPublisherInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder()
+                        .addTestDevice(getResources().getString(R.string.test_device_id))
+                        .build());
+                Log.i("***", "The interstitial 1 is ended!");
+                /*Move to the experts activity*/
+                Intent i = new Intent(AssitantActivity.this, VideosListActivity.class);
+                i.putExtra("TYPE", "EXPERTS");
+                startActivityForResult(i, 1);
+            }
+        });
+
+        mPublisherInterstitialAd2 = new PublisherInterstitialAd(this);
+        mPublisherInterstitialAd2.setAdUnitId(getResources().getString(R.string.admob_interstitial3_key));
+        PublisherAdRequest publisherAdRequest2 = new PublisherAdRequest.Builder()
+                .addTestDevice(getResources().getString(R.string.test_device_id))
+                .build();
+        mPublisherInterstitialAd2.loadAd(publisherAdRequest2);
+        mPublisherInterstitialAd2.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mPublisherInterstitialAd2.loadAd(new PublisherAdRequest.Builder()
+                        .addTestDevice(getResources().getString(R.string.test_device_id))
+                        .build());
+                Log.i("***", "The interstitial 2 is ended!");
+                /*Move to the parents activity*/
+                Intent ii = new Intent(AssitantActivity.this, VideosListActivity.class);
+                ii.putExtra("TYPE", "PARENTS");
+                startActivityForResult(ii, 1);
+            }
+        });
 
         tv_experts = findViewById(R.id.tv_experts);
         v_experts = findViewById(R.id.v_experts);
@@ -77,15 +125,21 @@ public class AssitantActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.tv_experts:
             case R.id.v_experts:
-                Intent i = new Intent(AssitantActivity.this, VideosListActivity.class);
-                i.putExtra("TYPE", "EXPERTS");
-                startActivityForResult(i, 1);
+                if (mPublisherInterstitialAd.isLoaded()) {
+                    mPublisherInterstitialAd.show();
+                    Log.i("***", "The interstitial 1 is displayed.");
+                } else {
+                    Log.i("***", "The interstitial 1 wasn't loaded yet.");
+                }
                 break;
             case R.id.tv_parents:
             case R.id.v_parents:
-                Intent ii = new Intent(AssitantActivity.this, VideosListActivity.class);
-                ii.putExtra("TYPE", "PARENTS");
-                startActivityForResult(ii, 1);
+                if (mPublisherInterstitialAd2.isLoaded()) {
+                    mPublisherInterstitialAd2.show();
+                    Log.i("***", "The interstitial 2 is displayed.");
+                } else {
+                    Log.i("***", "The interstitial 2 wasn't loaded yet.");
+                }
                 break;
         }
     }

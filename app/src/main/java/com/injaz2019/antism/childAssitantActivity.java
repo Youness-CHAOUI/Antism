@@ -6,14 +6,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 
 public class childAssitantActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +25,8 @@ public class childAssitantActivity extends AppCompatActivity implements View.OnC
     TextView tv_vid, tv_routine;
     View v_vid, v_routine;
     AdView adView;
+
+    private PublisherInterstitialAd mPublisherInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,27 @@ public class childAssitantActivity extends AppCompatActivity implements View.OnC
         adView = findViewById(R.id.adView_3);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(getResources().getString(R.string.test_device_id)).build();
         adView.loadAd(adRequest);
+
+        mPublisherInterstitialAd = new PublisherInterstitialAd(this);
+        mPublisherInterstitialAd.setAdUnitId(getResources().getString(R.string.admob_interstitial1_key));
+        PublisherAdRequest publisherAdRequest = new PublisherAdRequest.Builder()
+                .addTestDevice(getResources().getString(R.string.test_device_id))
+                .build();
+        mPublisherInterstitialAd.loadAd(publisherAdRequest);
+        mPublisherInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder()
+                        .addTestDevice(getResources().getString(R.string.test_device_id))
+                        .build());
+                Log.i("***", "The interstitial 0 is ended!");
+                /*Move to the next activity*/
+                Intent i = new Intent(childAssitantActivity.this, VideosListActivity.class);
+                i.putExtra("TYPE", "MODULAR");
+                startActivityForResult(i, 1);
+            }
+        });
 
         tv_vid = findViewById(R.id.tv_videos);
         tv_routine = findViewById(R.id.tv_routine);
@@ -78,13 +105,14 @@ public class childAssitantActivity extends AppCompatActivity implements View.OnC
         switch (v.getId()) {
             case R.id.tv_videos:
             case R.id.v_videos:
-                Intent i = new Intent(childAssitantActivity.this, VideosListActivity.class);
-                i.putExtra("TYPE", "MODULAR");
-                startActivityForResult(i, 1);
+                if (mPublisherInterstitialAd.isLoaded()) {
+                    mPublisherInterstitialAd.show();
+                    Log.i("***", "The interstitial 0 is displayed.");
+                } else {
+                    Log.i("***", "The interstitial 0 wasn't loaded yet.");
+                }
                 break;
             case R.id.tv_routine:
-                startActivity(new Intent(this, RoutineListActivity.class));
-                break;
             case R.id.v_routine:
                 startActivity(new Intent(this, RoutineListActivity.class));
                 break;
